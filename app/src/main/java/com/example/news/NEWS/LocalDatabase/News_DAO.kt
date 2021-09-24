@@ -5,6 +5,10 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.distinctUntilChanged
 
 @Dao
 interface News_DAO {
@@ -14,4 +18,5 @@ interface News_DAO {
 
     @Query("select * from article order by id ASC")
     fun getNews() : LiveData<List<Article>>
+
 }

@@ -3,6 +3,7 @@ package com.example.news.NEWS.ConverterforImage
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.util.Log
 import java.io.File
 import java.io.FileInputStream
 
@@ -10,7 +11,7 @@ class ImageStorageManager {
         companion object {
              fun saveToInternalStorage(context: Context, bitmapImage: Bitmap, imageFileName: String): String {
                 context.openFileOutput(imageFileName, Context.MODE_PRIVATE).use { fos ->
-                    bitmapImage.compress(Bitmap.CompressFormat.PNG, 25, fos)
+                    bitmapImage.compress(Bitmap.CompressFormat.JPEG, 100, fos)
                 }
                 return context.filesDir.absolutePath
             }
@@ -25,6 +26,16 @@ class ImageStorageManager {
                 val dir = context.filesDir
                 val file = File(dir, imageFileName)
                 return file.delete()
+            }
+
+            fun delete(context: Context) {
+                val dir = context.filesDir.deleteRecursively()
+                Log.d("img","deleted")
+
+            }
+
+            fun isEmpty(context: Context) : Boolean{
+                return context.filesDir.exists()
             }
         }
 }
