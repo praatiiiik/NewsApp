@@ -13,7 +13,7 @@ import retrofit2.Response
 
 class NewsRepo(private val dao: News_DAO) {
 
-    val allData: LiveData<List<Article>> = dao.getNews()
+    val allData: Flow<List<Article>> = dao.getNews()
 
 
     var newsResponse = MutableLiveData<Response<NewsPostModel>>()

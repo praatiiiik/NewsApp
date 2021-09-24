@@ -10,6 +10,7 @@ import android.view.View
 import android.widget.ProgressBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.asLiveData
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.SimpleItemAnimator
@@ -59,8 +60,9 @@ class MainActivity : AppCompatActivity(){
         recyclerView.adapter = adapter
         (recyclerView.itemAnimator as SimpleItemAnimator).supportsChangeAnimations = false
 
-        val newsView = ViewModelProvider(this,ViewModelProvider.AndroidViewModelFactory.getInstance(application))
-        newsViewModel = newsView.get(NewsViewModel::class.java)
+//        val newsView = ViewModelProvider(this,ViewModelProvider.AndroidViewModelFactory.getInstance(application))
+//        newsViewModel = newsView.get(NewsViewModel::class.java)
+          newsViewModel = ViewModelProvider(this,ViewModelProvider.AndroidViewModelFactory.getInstance(application)).get(NewsViewModel::class.java)
 
         collectingData(adapter)
 
@@ -122,9 +124,9 @@ class MainActivity : AppCompatActivity(){
 
     @DelicateCoroutinesApi
     private   fun collectingData(adapter: RecyclerViewAdapter) {
-        newsViewModel.newsData.observe(this@MainActivity,{
-                     adapter.updateList(it)
-                 })
+        newsViewModel.newsData.asLiveData().observe(this,{
+            adapter.updateList(it)
+        })
                     progBar.visibility = View.GONE
                     recyclerView.visibility = View.VISIBLE
                     newsNewsButton.visibility = View.VISIBLE

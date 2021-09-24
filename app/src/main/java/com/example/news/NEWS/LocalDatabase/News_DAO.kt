@@ -17,6 +17,6 @@ interface News_DAO {
     suspend fun upsert(article: Article)
 
     @Query("select * from article order by id ASC")
-    fun getNews() : LiveData<List<Article>>
+    fun getNews() : Flow<List<Article>>
 
 }

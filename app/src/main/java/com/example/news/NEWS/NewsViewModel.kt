@@ -18,7 +18,8 @@ class NewsViewModel( application: Application) : AndroidViewModel(application) {
 
      var newsResponse = MutableLiveData<Response<NewsPostModel>>()
      var newsApiService = NewsRetrofit()
-     var newsData : LiveData<List<Article>>
+     var newsData : Flow<List<Article>>
+     lateinit var newsDataa : LiveData<List<Article>>
      val repositiory : NewsRepo
 
     init {
