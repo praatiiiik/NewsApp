@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName
 
 data class NewsPostModel(
     @SerializedName("articles")
-    val articles: List<Article>,
+    var articles: List<Article>,
     @SerializedName("status")
     val status: String,
     @SerializedName("totalResults")

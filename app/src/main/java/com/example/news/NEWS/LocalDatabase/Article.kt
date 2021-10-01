@@ -6,6 +6,7 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
+import java.util.concurrent.atomic.AtomicInteger
 
 @Entity(tableName = "article")
 data class Article(
@@ -28,10 +29,8 @@ data class Article(
     @SerializedName("urlToImage")
     val urlToImage: String? = null,
     @ColumnInfo
-    val index: Int? ,
-    @ColumnInfo
-    val image : String?
+    var index : Int = 0
 ){
-    @PrimaryKey(autoGenerate = false)
-    var id : Int? = index
+    @PrimaryKey(autoGenerate = true)
+    var id = 0
 }

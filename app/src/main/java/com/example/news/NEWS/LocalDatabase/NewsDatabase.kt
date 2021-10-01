@@ -3,7 +3,7 @@ package com.example.news.NEWS.LocalDatabase
 import android.content.Context
 import androidx.room.*
 
-@Database(entities = [Article::class], version = 1, exportSchema = false)
+@Database(entities = [Article::class,forImage::class], version = 1, exportSchema = false)
 abstract class NewsDatabase : RoomDatabase() {
 
     abstract fun getNews(): News_DAO
