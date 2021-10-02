@@ -39,7 +39,6 @@ class RecyclerViewAdapter(private val context: Context) : RecyclerView.Adapter<R
     override fun onBindViewHolder(holder: noteViewHolder, position: Int) {
         val currentNotes = allNotes[position]
         holder.titleTextView.text = currentNotes.content.toString()
-        if(allImageData.size>18){
             try {
                 if(allImageData.isEmpty()){
                     holder.progressBar.visibility = View.VISIBLE
@@ -53,7 +52,6 @@ class RecyclerViewAdapter(private val context: Context) : RecyclerView.Adapter<R
                 Log.d("tag",e.toString())
                 holder.progressBar.visibility = View.VISIBLE
             }
-        }
     }
 
     override fun getItemCount(): Int {
@@ -71,4 +69,5 @@ class RecyclerViewAdapter(private val context: Context) : RecyclerView.Adapter<R
         allImageData.addAll(imageList)
         notifyDataSetChanged()
     }
+
 }

@@ -32,7 +32,9 @@ class NewsRepo(private val dao: News_DAO) {
 
 
     suspend fun insert(data : List<Article>) {
+        Log.d("synch","insertArticle3")
         dao.upsert(data)
+        Log.d("synch","insertArticle32")
     }
 
     suspend fun saveImage(img : forImage){
@@ -40,11 +42,16 @@ class NewsRepo(private val dao: News_DAO) {
     }
 
     fun deleteNews(){
+        Log.d("synch","deleteNews2")
         dao.deleteNews()
+        Log.d("synch","deleteNews22")
+
     }
 
     fun deleteImage(){
+        Log.d("synch","deleteImage1")
         dao.deleteImageData()
+        Log.d("synch","deleteImage12")
     }
 
 

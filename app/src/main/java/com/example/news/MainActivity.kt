@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.SimpleItemAnimator
+import coil.imageLoader
 import com.example.news.NEWS.ConverterforImage.ImageStorageManager
 import com.example.news.NEWS.NewsViewModel
 import com.example.news.NEWS.RecyclerView.RecyclerViewAdapter
@@ -37,7 +38,7 @@ class MainActivity : AppCompatActivity(){
         recyclerView.layoutManager = LinearLayoutManager(this)
         val adapter = RecyclerViewAdapter(this)
         recyclerView.adapter = adapter
-        (recyclerView.itemAnimator as SimpleItemAnimator).supportsChangeAnimations = false
+        (recyclerView.itemAnimator as SimpleItemAnimator).supportsChangeAnimations = true
 
           newsViewModel = ViewModelProvider(this,ViewModelProvider.AndroidViewModelFactory.getInstance(application)).get(NewsViewModel::class.java)
 
