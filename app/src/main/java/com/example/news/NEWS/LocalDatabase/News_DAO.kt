@@ -13,9 +13,10 @@ import kotlinx.coroutines.flow.distinctUntilChanged
 @Dao
 interface News_DAO {
 
-    //for news content
+    //for daily news content
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun upsert(articles: List<Article>)
+
 
     @Query("select * from article order by id ASC")
     fun getNews() : LiveData<List<Article>>

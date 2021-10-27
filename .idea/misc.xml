@@ -3,7 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/prati/AndroidStudioProjects/News/app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.2703125" />
+        <entry key="..\:/Users/prati/AndroidStudioProjects/News/app/src/main/res/drawable/ic_baseline_movie_filter_24.xml" value="0.2703125" />
+        <entry key="..\:/Users/prati/AndroidStudioProjects/News/app/src/main/res/drawable/ic_baseline_save_24.xml" value="0.2703125" />
+        <entry key="..\:/Users/prati/AndroidStudioProjects/News/app/src/main/res/drawable/ic_baseline_sports_soccer_24.xml" value="0.2703125" />
+        <entry key="..\:/Users/prati/AndroidStudioProjects/News/app/src/main/res/layout/activity_main.xml" value="0.176" />
+        <entry key="..\:/Users/prati/AndroidStudioProjects/News/app/src/main/res/layout/fragment_enter_tain_frag.xml" value="0.13020833333333334" />
+        <entry key="..\:/Users/prati/AndroidStudioProjects/News/app/src/main/res/layout/fragment_main_news.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/prati/AndroidStudioProjects/News/app/src/main/res/layout/news_recycler_view.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/prati/AndroidStudioProjects/News/app/src/main/res/menu/bottom_nav_menu.xml" value="0.25416666666666665" />
       </map>
     </option>
   </component>

@@ -2,19 +2,13 @@ package com.example.news.NEWS
 
 import android.app.Application
 import android.content.Context
-import android.util.Log
 import androidx.lifecycle.*
+import com.example.news.NEWS.DAilyNewsRepo.NewsRepo
 import com.example.news.NEWS.LocalDatabase.NewsDatabase
 import com.example.news.NEWS.LocalDatabase.Article
 import com.example.news.NEWS.LocalDatabase.forImage
-import com.example.news.NEWS.Network.NewsPostModel
-import com.example.news.NEWS.Network.NewsRetrofit
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.async
-import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
-import retrofit2.Response
 
 class NewsViewModel( application: Application) : AndroidViewModel(application) {
 
@@ -43,6 +37,7 @@ class NewsViewModel( application: Application) : AndroidViewModel(application) {
              repositiory.newsReesponse(context)
          }
     }
+
 
      fun deleteNews(){
          viewModelScope.launch(Dispatchers.IO) {

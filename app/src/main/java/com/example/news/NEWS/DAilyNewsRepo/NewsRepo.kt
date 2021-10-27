@@ -1,11 +1,10 @@
-package com.example.news.NEWS
+package com.example.news.NEWS.DAilyNewsRepo
 
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.drawable.BitmapDrawable
 import android.util.Log
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import coil.ImageLoader
 import coil.request.ImageRequest
 import coil.request.SuccessResult
@@ -13,13 +12,8 @@ import com.example.news.NEWS.ConverterforImage.ImageStorageManager
 import com.example.news.NEWS.LocalDatabase.News_DAO
 import com.example.news.NEWS.LocalDatabase.Article
 import com.example.news.NEWS.LocalDatabase.forImage
-import com.example.news.NEWS.Network.NewsPostModel
 import com.example.news.NEWS.Network.NewsRetrofit
-import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.coroutineScope
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.StateFlow
-import retrofit2.Response
 
 class NewsRepo(private val dao: News_DAO) {
 
@@ -36,6 +30,7 @@ class NewsRepo(private val dao: News_DAO) {
         dao.upsert(data)
         Log.d("synch","insertArticle32")
     }
+
 
     suspend fun saveImage(img : forImage){
         dao.saveImage(img)
@@ -68,6 +63,7 @@ class NewsRepo(private val dao: News_DAO) {
         }
 
     }
+
 
 
 

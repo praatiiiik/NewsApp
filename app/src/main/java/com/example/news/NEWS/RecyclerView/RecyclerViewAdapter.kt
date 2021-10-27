@@ -39,14 +39,17 @@ class RecyclerViewAdapter(private val context: Context) : RecyclerView.Adapter<R
     override fun onBindViewHolder(holder: noteViewHolder, position: Int) {
         val currentNotes = allNotes[position]
         holder.titleTextView.text = currentNotes.content.toString()
+
             try {
-                if(allImageData.isEmpty()){
+                    holder.progressBar.visibility = View.INVISIBLE
+                if(allImageData.size==0){
+                    holder.imgView.visibility = View.INVISIBLE
                     holder.progressBar.visibility = View.VISIBLE
                 } else {
-                    holder.progressBar.visibility = View.INVISIBLE
+                    holder.imgView.visibility = View.VISIBLE
                     val imageDataa = allImageData[position]
                     holder.imgView.load(ImageStorageManager.getImageFromInternalStorage(context,imageDataa.imageName.toString()))
-                    Log.d("tag",imageDataa.imageName.toString())
+                    Log.d("recycler",imageDataa.imageName.toString())
                 }
             }catch (e : Exception){
                 Log.d("tag",e.toString())
@@ -57,9 +60,9 @@ class RecyclerViewAdapter(private val context: Context) : RecyclerView.Adapter<R
     override fun getItemCount(): Int {
         return allNotes.size
     }
+
     fun updateList(newList: List<Article>){
         allNotes.clear()
-        allImageData.clear()
         allNotes.addAll(newList)
         notifyDataSetChanged()
     }

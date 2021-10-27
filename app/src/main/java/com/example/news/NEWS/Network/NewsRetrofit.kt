@@ -17,6 +17,11 @@ interface NewsRetrofit {
         @Query("country") country: String
     ): Response<NewsPostModel>
 
+    @GET("top-headlines")
+    suspend fun getOtherNews(
+        @Query("country") country: String,@Query("category") category:String
+    ): Response<NewsPostModel>
+
     companion object {
         operator fun invoke(): NewsRetrofit {
             val requestInterceptor = Interceptor { chain ->

@@ -2,26 +2,26 @@ package com.example.news
 import android.content.Context
 import android.os.Bundle
 import android.util.Log
-import android.view.View
-import android.widget.ProgressBar
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.SimpleItemAnimator
-import coil.imageLoader
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.example.news.NEWS.ConverterforImage.ImageStorageManager
 import com.example.news.NEWS.NewsViewModel
 import com.example.news.NEWS.RecyclerView.RecyclerViewAdapter
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import kotlinx.coroutines.*
+import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.coroutines.DelicateCoroutinesApi
 
 class MainActivity : AppCompatActivity(){
 
     private lateinit var recyclerView: RecyclerView
-    private lateinit var newsNewsButton : FloatingActionButton
+    private lateinit var swipe : SwipeRefreshLayout
     private lateinit var context: Context
-    private lateinit var progBar : ProgressBar
     private lateinit var newsViewModel: NewsViewModel
 
 
@@ -31,32 +31,40 @@ class MainActivity : AppCompatActivity(){
         setContentView(R.layout.activity_main)
 
         recyclerView = findViewById(R.id.newsRecyclerView)
-        newsNewsButton = findViewById(R.id.newNewsData)
-        progBar = findViewById(R.id.progress_bar)
+        swipe = findViewById(R.id.swipeToRefresh)
+
         context = this
 
         recyclerView.layoutManager = LinearLayoutManager(this)
         val adapter = RecyclerViewAdapter(this)
         recyclerView.adapter = adapter
         (recyclerView.itemAnimator as SimpleItemAnimator).supportsChangeAnimations = true
+        recyclerView.addItemDecoration(
+            DividerItemDecoration(
+                recyclerView.context,
+                DividerItemDecoration.VERTICAL
+            )
+        )
 
           newsViewModel = ViewModelProvider(this,ViewModelProvider.AndroidViewModelFactory.getInstance(application)).get(NewsViewModel::class.java)
 
         collectingData(adapter)
 
         //to get the latest data from API
-        newsNewsButton.setOnClickListener {
+        swipe.setOnRefreshListener {
             adapter.allNotes.clear()
             adapter.allImageData.clear()
-            progBar.visibility = View.VISIBLE
-            recyclerView.visibility = View.INVISIBLE
-            newsNewsButton.visibility = View.INVISIBLE
             recyclerView.scrollToPosition(0)
             newsViewModel.deleteImageData()
             clearImageFromData()
             newsViewModel.deleteNews()
             newsViewModel.getDataFromApi(context)
+            swipe.isRefreshing = false;
         }
+
+
+        Toast.makeText(this,"Swipe Down To Refresh", Toast.LENGTH_LONG).show()
+
     }
 
     //observe livedata and set to adapter
@@ -64,9 +72,6 @@ class MainActivity : AppCompatActivity(){
     private fun collectingData(adapter: RecyclerViewAdapter) {
 
         newsViewModel.newsData.observe(this,{
-            progBar.visibility = View.INVISIBLE
-            recyclerView.visibility = View.VISIBLE
-            newsNewsButton.visibility = View.VISIBLE
             Log.d("live","sending article data")
             adapter.updateList(it)
         })
