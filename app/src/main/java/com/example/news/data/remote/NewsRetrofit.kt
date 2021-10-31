@@ -1,6 +1,6 @@
-package com.example.news.NEWS.Network
+package com.example.news.data.remote
 
-import com.example.news.NEWS.Network.NewsPostModel
+import com.example.news.data.remote.model.NewsPostModel
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import retrofit2.Response

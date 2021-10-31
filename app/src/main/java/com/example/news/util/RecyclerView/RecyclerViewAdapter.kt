@@ -1,4 +1,4 @@
-package com.example.news.NEWS.RecyclerView
+package com.example.news.util.RecyclerView
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -8,8 +8,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
-import com.example.news.NEWS.ConverterforImage.ImageStorageManager
-import com.example.news.NEWS.LocalDatabase.Article
+import com.example.news.util.ConverterforImage.ImageStorageManager
+import com.example.news.data.remote.model.Article
 import com.example.news.R
 
 

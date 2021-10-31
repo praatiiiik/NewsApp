@@ -10,13 +10,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1c2c012a-1b45-4eb0-8f18-6a90c66fa22e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/news/presentation/splash/SplashActivity.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_splash.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/news/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/news/presentation/main/MainActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/news/data/remote/NetworkService.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/news/NEWS/ConverterforImage/ImageStorageManager.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/news/util/ConverterforImage/ImageStorageManager.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/news/NEWS/ConverterforImage/ImageStorageToCache.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/news/util/ConverterforImage/ImageStorageToCache.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/news/NEWS/LocalDatabase/Article.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/news/data/local/Article.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/news/NEWS/LocalDatabase/NewsDatabase.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/news/data/local/NewsDatabase.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/news/NEWS/LocalDatabase/News_DAO.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/news/data/local/News_DAO.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/news/NEWS/Network/NewsPostModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/news/data/remote/model/NewsPostModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/news/NEWS/Network/NewsRetrofit.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/news/data/remote/NewsRetrofit.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/news/NEWS/Network/Source.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/news/data/remote/model/Source.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/news/NEWS/NewsRepo.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/news/data/repo/NewsRepo.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/news/NEWS/NewsViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/news/presentation/main/NewsViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/news/NEWS/RecyclerView/RecyclerViewAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/news/util/RecyclerView/RecyclerViewAdapter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/news/di/AppModule.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/news/di/AppModule.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/news/presentation/main/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/news/presentation/main/MainActivity.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,6 +53,7 @@
       <list>
         <option value="Kotlin Object" />
         <option value="Kotlin Class" />
+        <option value="Kotlin Interface" />
       </list>
     </option>
   </component>
@@ -77,6 +85,9 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
+      <recent name="com.example.news.data.remote.model" />
+      <recent name="com.example.news.data.local" />
+      <recent name="com.example.news.data.repo" />
       <recent name="com.example.news.presentation.main" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">

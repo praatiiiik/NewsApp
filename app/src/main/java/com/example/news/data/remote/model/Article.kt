@@ -1,4 +1,4 @@
-package com.example.news.NEWS.LocalDatabase
+package com.example.news.data.remote.model
 
 
 import android.graphics.Bitmap

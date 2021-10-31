@@ -1,8 +1,9 @@
 package com.example.news.di
 
 import android.app.Application
-import com.example.news.NEWS.LocalDatabase.NewsDatabase
-import com.example.news.NEWS.Network.NewsRetrofit
+import com.example.news.data.local.NewsDatabase
+import com.example.news.data.remote.NetworkService
+import com.example.news.data.remote.Networking
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -16,7 +17,7 @@ object AppModule {
     // Complete Retrofit Instance
     @Provides
     @Singleton
-    fun provideNetworkService() : NewsRetrofit = NewsRetrofit()
+    fun provideNetworkService(): NetworkService = Networking.create()
 
     // Complete Room Database Instance
     @Singleton
