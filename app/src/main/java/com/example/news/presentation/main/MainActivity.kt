@@ -28,18 +28,26 @@ import retrofit2.Response
 @DelicateCoroutinesApi
 class MainActivity : AppCompatActivity(){
 
+    /**
+     * This can be reduced by using either ViewBinding or DataBinding
+     * it increase performance and decreases lines of code also
+     */
+
     private lateinit var recyclerView: RecyclerView
     private lateinit var newsNewsButton : FloatingActionButton
     private lateinit var context: Context
     private lateinit var manager: ActivityManager
     private lateinit var progBar : ProgressBar
+
+    private lateinit var newsViewModel: NewsViewModel
+
+    // Scopes
     val scope = CoroutineScope(Job() + Dispatchers.IO)
     val fromDb = CoroutineScope(Job() + Dispatchers.Main)
     var fetchFromServer: Job? = null
     var cannFetchFromDb = false
 
 
-    private lateinit var newsViewModel: NewsViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -55,6 +63,9 @@ class MainActivity : AppCompatActivity(){
         recyclerView.adapter = adapter
         (recyclerView.itemAnimator as SimpleItemAnimator).supportsChangeAnimations = false
 
+        /**
+         * This can be provided from the outside
+         */
         val newsView = ViewModelProvider(this,ViewModelProvider.AndroidViewModelFactory.getInstance(application))
         newsViewModel = newsView.get(NewsViewModel::class.java)
 
@@ -79,6 +90,10 @@ class MainActivity : AppCompatActivity(){
 
             newsViewModel.UpdateNewsData()
 
+            /**
+             * Most of the business logic belongs to view Model or in extreme conditions at
+             * the Repository
+             */
 
                 newsViewModel.repositiory.newsResponse.observe(this, { response ->
                     val postList = response.body()
@@ -127,6 +142,10 @@ class MainActivity : AppCompatActivity(){
     }
 
 
+    /**
+     * Bitmap operations are heavy use Dispatchers.Default for this operations
+     * and avoid doing them in the Main onCreate method of the activity
+     */
 
     //Coil function
         private suspend fun getBitmap(i : Int,response : Response<NewsPostModel>) : Bitmap? {

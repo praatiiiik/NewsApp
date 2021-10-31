@@ -17,6 +17,11 @@ class RecyclerViewAdapter(private val context: Context) : RecyclerView.Adapter<R
 
     private val allNotes = ArrayList<Article>()
 
+    /**
+     * This view Holder can be in different class
+     * Using ListAdapter is preferred instead of the Normal Recycler View
+     * List Adapter has DIFF_UTIL for more performance
+     */
     inner class noteViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView){
          val imgView = itemView.findViewById<ImageView>(R.id.newsThumbnailImageView)
          val titleTextView = itemView.findViewById<TextView>(R.id.titleTextView)
@@ -25,8 +30,9 @@ class RecyclerViewAdapter(private val context: Context) : RecyclerView.Adapter<R
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): noteViewHolder {
-        val viewHolder = noteViewHolder(LayoutInflater.from(context).inflate(R.layout.news_recycler_item_view,parent,false))
-        return viewHolder
+        return noteViewHolder(
+            LayoutInflater.from(context).inflate(R.layout.news_recycler_item_view, parent, false)
+        )
     }
 
     override fun onBindViewHolder(holder: noteViewHolder, position: Int) {
@@ -36,9 +42,8 @@ class RecyclerViewAdapter(private val context: Context) : RecyclerView.Adapter<R
         holder.imgView.load(ImageStorageManager.getImageFromInternalStorage(context,currentNotes.image.toString()))
     }
 
-    override fun getItemCount(): Int {
-        return allNotes.size
-    }
+    override fun getItemCount() = allNotes.size
+
     fun updateList(newList: List<Article>){
         allNotes.clear()
         allNotes.addAll(newList)
