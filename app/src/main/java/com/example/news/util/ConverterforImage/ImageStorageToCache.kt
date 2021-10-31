@@ -1,4 +1,4 @@
-package com.example.news.NEWS.ConverterforImage
+package com.example.news.util.ConverterforImage
 
 import android.graphics.Bitmap
 import android.util.LruCache

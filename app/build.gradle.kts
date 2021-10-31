@@ -1,10 +1,9 @@
-import org.gradle.internal.impldep.jcifs.UniAddress.getByName
-
 plugins {
     id("com.android.application")
     id("kotlin-android")
     id("kotlin-kapt")
-    id("kotlin-android-extensions")
+    id("dagger.hilt.android.plugin")
+    kotlin("android")
 }
 
 android {
@@ -22,7 +21,7 @@ android {
     }
 
     buildTypes {
-        getByName("release") {
+        getByName("release"){
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
@@ -67,6 +66,12 @@ dependencies {
     implementation(Retrofit.RETROFIT)
     implementation(Retrofit.GSON_ADAPTER)
     implementation(Retrofit.RETROFIT_COROUTINES_ADAPTER)
+
+    // Hilt + Dagger
+    implementation(Hilt.hiltAndroid)
+    implementation(Hilt.hiltViewModel)
+    kapt(Hilt.daggerCompiler)
+    kapt(Hilt.hiltCompiler)
 
     // ViewModel
     implementation("androidx.lifecycle:lifecycle-extensions:2.2.0")

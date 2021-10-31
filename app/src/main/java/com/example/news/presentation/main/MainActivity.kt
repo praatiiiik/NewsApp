@@ -1,4 +1,4 @@
-package com.example.news
+package com.example.news.presentation.main
 
 import android.app.ActivityManager
 import android.content.Context
@@ -16,11 +16,11 @@ import androidx.recyclerview.widget.SimpleItemAnimator
 import coil.ImageLoader
 import coil.request.ImageRequest
 import coil.request.SuccessResult
-import com.example.news.NEWS.ConverterforImage.ImageStorageManager
-import com.example.news.NEWS.LocalDatabase.Article
-import com.example.news.NEWS.Network.NewsPostModel
-import com.example.news.NEWS.NewsViewModel
-import com.example.news.NEWS.RecyclerView.RecyclerViewAdapter
+import com.example.news.util.ConverterforImage.ImageStorageManager
+import com.example.news.data.remote.model.Article
+import com.example.news.data.remote.model.NewsPostModel
+import com.example.news.util.RecyclerView.RecyclerViewAdapter
+import com.example.news.R
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import kotlinx.coroutines.*
 import retrofit2.Response

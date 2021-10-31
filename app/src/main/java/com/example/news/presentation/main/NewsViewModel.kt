@@ -1,16 +1,13 @@
-package com.example.news.NEWS
+package com.example.news.presentation.main
 
 import android.app.Application
-import android.util.Log
 import androidx.lifecycle.*
-import com.example.news.NEWS.LocalDatabase.NewsDatabase
-import com.example.news.NEWS.LocalDatabase.Article
-import com.example.news.NEWS.Network.NewsPostModel
-import com.example.news.NEWS.Network.NewsRetrofit
+import com.example.news.data.local.NewsDatabase
+import com.example.news.data.remote.model.Article
+import com.example.news.data.remote.model.NewsPostModel
+import com.example.news.util.Network.NewsRetrofit
+import com.example.news.data.repo.NewsRepo
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.async
-import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 import retrofit2.Response
 

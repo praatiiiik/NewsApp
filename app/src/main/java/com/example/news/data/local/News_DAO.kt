@@ -1,14 +1,11 @@
-package com.example.news.NEWS.LocalDatabase
+package com.example.news.data.local
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.distinctUntilChanged
+import com.example.news.data.remote.model.Article
 
 @Dao
 interface News_DAO {
