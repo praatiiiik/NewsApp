@@ -9,6 +9,15 @@ import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Query
 
+/**
+ *Create separate class and files for separate functions
+ * Providing constants, Endpoints, API, interface and creating a instance through builder is
+ * not good practice
+ *
+ * If API grows this will get hard to maintain
+ */
+
+
 const val API_KEY = "5b9022d413b94e55857c3cb44f0ca2ad"
 interface NewsRetrofit {
 

@@ -8,12 +8,11 @@ import androidx.room.Query
 import com.example.news.data.remote.model.Article
 
 @Dao
-interface News_DAO {
+interface NewsDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun upsert(article: Article)
+    suspend fun insert(article: Article)
 
-    @Query("select * from article order by id ASC")
-    fun getNews() : LiveData<List<Article>>
-
+    @Query("SELECT * FROM article order by id ASC")
+    fun getNews(): LiveData<List<Article>>
 }
