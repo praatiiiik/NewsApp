@@ -23,10 +23,9 @@ import com.example.news.NEWS.NewsViewModel
 import com.example.news.NEWS.RecyclerView.RecyclerViewAdapter
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import kotlinx.coroutines.*
-import kotlinx.coroutines.flow.collect
 import retrofit2.Response
 
-
+@DelicateCoroutinesApi
 class MainActivity : AppCompatActivity(){
 
     private lateinit var recyclerView: RecyclerView
@@ -41,14 +40,13 @@ class MainActivity : AppCompatActivity(){
 
 
     private lateinit var newsViewModel: NewsViewModel
-    @DelicateCoroutinesApi
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         recyclerView = findViewById(R.id.newsRecyclerView)
-        newsNewsButton = findViewById(R.id.newNewsData)
-        progBar = findViewById(R.id.progress_bar)
+        newsNewsButton = findViewById(R.id.loadNewNewsFab)
+        progBar = findViewById(R.id.mainScreenProgressBar)
         context = this
         manager = (getSystemService(ACTIVITY_SERVICE) as ActivityManager)
 
