@@ -8,6 +8,9 @@ import com.example.news.NEWS.LocalDatabase.Article
 import com.example.news.NEWS.Network.NewsPostModel
 import com.example.news.NEWS.Network.NewsRetrofit
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.async
+import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 import retrofit2.Response
 
@@ -15,19 +18,20 @@ class NewsViewModel( application: Application) : AndroidViewModel(application) {
 
      var newsResponse = MutableLiveData<Response<NewsPostModel>>()
      var newsApiService = NewsRetrofit()
-    val allNotess: LiveData<List<Article>>
-    private val repositiory : NewsRepo
+     var newsData : LiveData<List<Article>>
+     val repositiory : NewsRepo
 
     init {
         val dao = NewsDatabase.getDatabase(application).getNews()
         repositiory = NewsRepo(dao)
-        allNotess = repositiory.allData
-        Log.d("imgvie",allNotess.value?.size.toString())/////////////////////////////////////////////////
+        newsData = repositiory.allData
     }
 
 
+
     fun UpdateNewsData() = viewModelScope.launch(Dispatchers.IO) {
-         newsResponse.postValue(newsApiService.getNews("in"))
+         repositiory.updateNewsData()
+
     }
 
     fun insertNews(note : Article) = viewModelScope.launch(Dispatchers.IO) {
@@ -37,4 +41,3 @@ class NewsViewModel( application: Application) : AndroidViewModel(application) {
 
 }
 
-// newsDao.upsert(Article(postList.articles[2].author,postList.articles[2].content,postList.articles[2].description,postList.articles[2].publishedAt,postList.articles[2].title,postList.articles[2].url,postList.articles[2].urlToImage))

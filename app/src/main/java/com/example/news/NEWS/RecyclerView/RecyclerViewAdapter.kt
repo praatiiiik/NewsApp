@@ -1,6 +1,7 @@
 package com.example.news.NEWS.RecyclerView
 
 import android.content.Context
+import android.graphics.drawable.BitmapDrawable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,7 +9,9 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
+import com.example.news.MainActivity
 import com.example.news.NEWS.ConverterforImage.ImageStorageManager
+import com.example.news.NEWS.ConverterforImage.ImageStorageToCache
 import com.example.news.NEWS.LocalDatabase.Article
 import com.example.news.R
 
@@ -42,6 +45,6 @@ class RecyclerViewAdapter(private val context: Context) : RecyclerView.Adapter<R
     fun updateList(newList: List<Article>){
         allNotes.clear()
         allNotes.addAll(newList)
-        notifyItemChanged(allNotes.size-1)
+        notifyDataSetChanged()
     }
 }
