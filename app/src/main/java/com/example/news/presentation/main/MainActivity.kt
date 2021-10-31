@@ -1,4 +1,4 @@
-package com.example.news
+package com.example.news.presentation.main
 
 import android.app.ActivityManager
 import android.content.Context
@@ -21,6 +21,7 @@ import com.example.news.NEWS.LocalDatabase.Article
 import com.example.news.NEWS.Network.NewsPostModel
 import com.example.news.NEWS.NewsViewModel
 import com.example.news.NEWS.RecyclerView.RecyclerViewAdapter
+import com.example.news.R
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import kotlinx.coroutines.*
 import retrofit2.Response
