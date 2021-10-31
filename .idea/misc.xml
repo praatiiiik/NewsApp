@@ -3,7 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Pratik_Hacktoberfest_2021/app/src/main/res/layout/activity_main.xml" value="0.15353260869565216" />
+        <entry key="..\:/Pratik_Hacktoberfest_2021/app/src/main/res/layout/activity_main.xml" value="0.152" />
+        <entry key="..\:/Pratik_Hacktoberfest_2021/app/src/main/res/layout/news_recycler_item_view.xml" value="0.136" />
+        <entry key="..\:/Pratik_Hacktoberfest_2021/app/src/main/res/layout/news_recycler_view.xml" value="0.16394927536231885" />
       </map>
     </option>
   </component>
