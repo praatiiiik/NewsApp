@@ -1,4 +1,4 @@
-package com.example.news.NEWS.ConverterforImage
+package com.example.news.util.ConverterforImage
 
 import android.content.Context
 import android.graphics.Bitmap

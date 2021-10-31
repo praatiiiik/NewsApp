@@ -1,7 +1,8 @@
-package com.example.news.NEWS.LocalDatabase
+package com.example.news.data.local
 
 import android.content.Context
 import androidx.room.*
+import com.example.news.data.remote.model.Article
 
 @Database(entities = [Article::class], version = 1, exportSchema = false)
 abstract class NewsDatabase : RoomDatabase() {

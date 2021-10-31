@@ -1,7 +1,6 @@
-package com.example.news.NEWS.Network
+package com.example.news.data.remote.model
 
 
-import com.example.news.NEWS.LocalDatabase.Article
 import com.google.gson.annotations.SerializedName
 
 data class NewsPostModel(
