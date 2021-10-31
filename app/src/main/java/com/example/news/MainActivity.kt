@@ -40,8 +40,6 @@ class MainActivity : AppCompatActivity(){
     var cannFetchFromDb = false
 
 
-
-
     private lateinit var newsViewModel: NewsViewModel
     @DelicateCoroutinesApi
     override fun onCreate(savedInstanceState: Bundle?) {
