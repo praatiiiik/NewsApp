@@ -2,6 +2,8 @@ package com.example.news
 import android.content.Context
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
+import android.widget.ImageButton
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
@@ -11,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.SimpleItemAnimator
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.example.news.NEWS.ConverterforImage.ImageStorageManager
+import com.example.news.NEWS.LocalDatabase.Article
 import com.example.news.NEWS.NewsViewModel
 import com.example.news.NEWS.RecyclerView.RecyclerViewAdapter
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -20,7 +23,7 @@ import kotlinx.coroutines.DelicateCoroutinesApi
 class MainActivity : AppCompatActivity(){
 
     private lateinit var recyclerView: RecyclerView
-    private lateinit var swipe : SwipeRefreshLayout
+    private lateinit var refreshButton : ImageButton
     private lateinit var context: Context
     private lateinit var newsViewModel: NewsViewModel
 
@@ -31,7 +34,7 @@ class MainActivity : AppCompatActivity(){
         setContentView(R.layout.activity_main)
 
         recyclerView = findViewById(R.id.newsRecyclerView)
-        swipe = findViewById(R.id.swipeToRefresh)
+        refreshButton = findViewById(R.id.refreshButton)
 
         context = this
 
@@ -51,7 +54,7 @@ class MainActivity : AppCompatActivity(){
         collectingData(adapter)
 
         //to get the latest data from API
-        swipe.setOnRefreshListener {
+         refreshButton.setOnClickListener{
             adapter.allNotes.clear()
             adapter.allImageData.clear()
             recyclerView.scrollToPosition(0)
@@ -59,17 +62,18 @@ class MainActivity : AppCompatActivity(){
             clearImageFromData()
             newsViewModel.deleteNews()
             newsViewModel.getDataFromApi(context)
-            swipe.isRefreshing = false;
         }
 
 
-        Toast.makeText(this,"Swipe Down To Refresh", Toast.LENGTH_LONG).show()
+
 
     }
 
     //observe livedata and set to adapter
     @DelicateCoroutinesApi
     private fun collectingData(adapter: RecyclerViewAdapter) {
+
+
 
         newsViewModel.newsData.observe(this,{
             Log.d("live","sending article data")

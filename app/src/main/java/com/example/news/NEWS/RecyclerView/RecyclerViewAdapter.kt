@@ -21,14 +21,14 @@ import com.example.news.R
 
 class RecyclerViewAdapter(private val context: Context) : RecyclerView.Adapter<RecyclerViewAdapter.noteViewHolder>() {
 
-     val allNotes = ArrayList<Article>()
-     val allImageData = ArrayList<forImage>()
+    val allNotes = ArrayList<Article>()
+    val allImageData = ArrayList<forImage>()
 
 
     inner class noteViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView){
-         val imgView = itemView.findViewById<ImageView>(R.id.rclrImageView)
-         val titleTextView = itemView.findViewById<TextView>(R.id.titleTextView)
-         val progressBar = itemView.findViewById<ProgressBar>(R.id.progressBarrr)
+        val imgView = itemView.findViewById<ImageView>(R.id.rclrImageView)
+        val titleTextView = itemView.findViewById<TextView>(R.id.titleTextView)
+        val progressBar = itemView.findViewById<ProgressBar>(R.id.progressBarrr)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): noteViewHolder {
@@ -38,23 +38,23 @@ class RecyclerViewAdapter(private val context: Context) : RecyclerView.Adapter<R
 
     override fun onBindViewHolder(holder: noteViewHolder, position: Int) {
         val currentNotes = allNotes[position]
-        holder.titleTextView.text = currentNotes.content.toString()
+        holder.titleTextView.text = currentNotes.description.toString()
 
-            try {
-                    holder.progressBar.visibility = View.INVISIBLE
-                if(allImageData.size==0){
-                    holder.imgView.visibility = View.INVISIBLE
-                    holder.progressBar.visibility = View.VISIBLE
-                } else {
-                    holder.imgView.visibility = View.VISIBLE
-                    val imageDataa = allImageData[position]
-                    holder.imgView.load(ImageStorageManager.getImageFromInternalStorage(context,imageDataa.imageName.toString()))
-                    Log.d("recycler",imageDataa.imageName.toString())
-                }
-            }catch (e : Exception){
-                Log.d("tag",e.toString())
+        try {
+            holder.progressBar.visibility = View.INVISIBLE
+            if(allImageData.size==0){
+                holder.imgView.visibility = View.INVISIBLE
                 holder.progressBar.visibility = View.VISIBLE
+            } else {
+                holder.imgView.visibility = View.VISIBLE
+                val imageDataa = allImageData[position]
+                holder.imgView.load(ImageStorageManager.getImageFromInternalStorage(context,imageDataa.imageName.toString()))
+                Log.d("recycler",imageDataa.imageName.toString())
             }
+        }catch (e : Exception){
+            Log.d("tag",e.toString())
+            holder.progressBar.visibility = View.VISIBLE
+        }
     }
 
     override fun getItemCount(): Int {

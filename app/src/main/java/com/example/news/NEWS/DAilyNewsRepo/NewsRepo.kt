@@ -19,8 +19,6 @@ class NewsRepo(private val dao: News_DAO) {
 
     val allData: LiveData<List<Article>> = dao.getNews()
     val imageData : LiveData<List<forImage>> = dao.gettmage()
-
-    //   var newsResponse = Response<NewsPostModel>()
     var newsApiService = NewsRetrofit()
 
 
@@ -63,12 +61,6 @@ class NewsRepo(private val dao: News_DAO) {
         }
 
     }
-
-
-
-
-
-
 
 
     private suspend fun getBitmap(string: String?,context: Context,i:Int?) : Bitmap? {
@@ -118,59 +110,4 @@ class NewsRepo(private val dao: News_DAO) {
             }
         }
     }
-
-
 }
-
-
-/*
-private suspend fun getBitmap(string: String,context: Context) : Bitmap? {
-        try {
-            return if (response.body()?.articles?.get(i)?.urlToImage != null) {
-                coroutineScope {
-                    val loading = ImageLoader(context)
-                    val request = ImageRequest.Builder(context)
-                        .data(response.body()?.articles?.get(i)?.urlToImage).build()
-                    val result = (loading.execute(request) as SuccessResult).drawable
-                    val string = ImageStorageManager.saveToInternalStorage(
-                        context,
-                        (result as BitmapDrawable).bitmap,
-                        result.bitmap.toString()
-                    )
-                    Log.d("imgmain", result.toString())
-                    result.bitmap
-                }
-            } else {
-                coroutineScope {
-                    val loading = ImageLoader(context)
-                    val request = ImageRequest.Builder(context)
-                        .data("https://avatars3.githubusercontent.com/u/14994036?s=400&u=2832879700f03d4b37ae1c09645352a352b9d2d0&v=4")
-                        .build()
-                    val result = (loading.execute(request) as SuccessResult).drawable
-                    ImageStorageManager.saveToInternalStorage(
-                        context,
-                        (result as BitmapDrawable).bitmap,
-                        result.bitmap.toString()
-                    )
-                    Log.d("imgmain", result.toString())
-                    result.bitmap
-                }
-            }
-        } catch (e : Exception){
-            return coroutineScope {
-                val loading = ImageLoader(context)
-                val request = ImageRequest.Builder(context)
-                    .data("https://avatars3.githubusercontent.com/u/14994036?s=400&u=2832879700f03d4b37ae1c09645352a352b9d2d0&v=4")
-                    .build()
-                val result = (loading.execute(request) as SuccessResult).drawable
-                ImageStorageManager.saveToInternalStorage(
-                    context,
-                    (result as BitmapDrawable).bitmap,
-                    result.bitmap.toString()
-                )
-                Log.d("imgmain", result.toString())
-                result.bitmap
-            }
-        }
-    }
- */

@@ -29,8 +29,9 @@ data class Article(
     @SerializedName("urlToImage")
     val urlToImage: String? = null,
     @ColumnInfo
-    var index : Int = 0
+    var index : Int? = 0
 ){
+
     @PrimaryKey(autoGenerate = true)
     var id = 0
 }

@@ -2,6 +2,7 @@ package com.example.news.NEWS
 
 import android.app.Application
 import android.content.Context
+import android.util.Log
 import androidx.lifecycle.*
 import com.example.news.NEWS.DAilyNewsRepo.NewsRepo
 import com.example.news.NEWS.LocalDatabase.NewsDatabase
@@ -24,12 +25,6 @@ class NewsViewModel( application: Application) : AndroidViewModel(application) {
         imageData = repositiory.imageData
     }
 
-    //get data from roomDB at initial level and set data to flow object
-    fun getDAta(){
-        viewModelScope.launch {
-            newsData = repositiory.allData
-        }
-    }
 
     //These function get data from roomDB and set that data to flow object
      fun getDataFromApi(context: Context){
@@ -50,6 +45,7 @@ class NewsViewModel( application: Application) : AndroidViewModel(application) {
             repositiory.deleteImage()
         }
     }
+
 
 
 
